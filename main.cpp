@@ -152,7 +152,7 @@ cout<<"\nHeight: >>";
 
 //get height
 object.height=object.getinput();
-if(object.height==NULL){
+if(object.height<=0.0){
 	cout<<"Error getting input";
 	return -1;
 }
@@ -160,14 +160,14 @@ if(object.height==NULL){
 cout<<"Input weight in lbs";
 cout<<"\nlbs: >>";
 object.lbs=object.getinput();
-if(object.lbs==NULL){
+if(object.lbs<=0.0){
 	cout<<"Error getting input";
 	return -1;
 }
 
 //calculate BMI
 object.calculateBMI(object);
-if(object.bmi==NULL){
+if(object.bmi<=0.0){
 	cout<<"Error calculating BMI";
 	return -1;
 }
