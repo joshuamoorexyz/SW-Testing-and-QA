@@ -29,11 +29,19 @@ weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (see
 
 using namespace std;
 
+class BMI{
 
+
+private:
+
+
+
+public:
 //needed variables
 float height;
 float lbs;
 float bmi;
+float finalbmi;
 
 //bmi vals
 float weightconversion=0.45;
@@ -50,149 +58,151 @@ float overweightupper=29.9;
 
 int obese=30;
 
-
 //functions for program
 
-bool getinput(){
-cout<<"\nInput height in feet and inches";
-cout<<"\nHeight:";
-cin>>height;
-
-
-//check to see if input is in beilivable range for height
-//
-if(height>1000.00){
-
-cout<<"Height input error,exiting ..";
-return false;
+//get the values
+float getinput(){
+float input;
+std::cin>>input;
+return input;
 }
 
 
-cout<<"Input weight in lbs";
-cout<<"\nlbs:";
-cin>>lbs;
-
-
-//check to see if input is in beilivable range for weight
-//
-if(weight>1000.00){
-
-cout<<"weight input error,exiting ..";
-return false;
-}
-
-return true;
-
-
-	
-}
-
-bool calculateBMI(){
+float calculateBMI(BMI O){
 
 //calculate to get BMI value
 
 //1
 //multiply weight to convert
-weightconverted=lbs*weightconversion;
+O.weightconverted=lbs*O.weightconversion;
 
 //2
 //multiply height to convert
-heightconverted=height*heightconversion;
+O.heightconverted=O.height*O.heightconversion;
 
 //3
 //square the answer from step 2
-heightconverted=heightconverted*heightconverted;
+O.heightconverted=O.heightconverted*O.heightconverted;
 
 //4
 //divide the answer from step 1 by the answer from step 3
-bmi=weightconverted/heightconverted;
+O.bmi=O.weightconverted/O.heightconverted;
 
 
-return true;
+return O.bmi;
 }
 
-bool classifyBMI(){
+string classifyBMI(BMI b){
 
 //classify BMI based on following:
 //Underweight = <18.5; Normal weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (s//ee formula linked in the Notes  & Resources section)
 //bmi link:http://extoxnet.orst.edu/faqs/dietcancer/web2/twohowto.html
 
 //underweight bmi
-if(bmi<underweight){
+if(b.bmi<b.underweight){
 
-cout<<"\nYour BMI indicates that your underweight";
-cout<<endl;
-return true;
+string bmi="underweight";
+return bmi;
 }
 
 //normal bmi
-if(bmi>underweight && bmi<normalupper){
+if(b.bmi>b.underweight && b.bmi<b.normalupper){
+string bmi="normal";
 
-cout<<"\nYour BMI indicates that your normal";
-cout<<endl;
-return true;
+return bmi;
 }
 
 //overweight
 if(bmi>25 && bmi<29.9){
+string bmi="overweight";
 
-cout<<"\nYour BMI indicates that your overweight";
-cout<<endl;
-return true;
+return bmi;
+
 }
 
 //obese
 if(bmi >=30){
+string bmi="obese";
 
-cout<<"\nYour BMI indicates that your obese";
-cout<<endl;
-return true;
+return bmi;
 
-}
 
-else{
-	return false;
+
 }
 
 
 }
 
 
+
+};
 
 
 int main(){
 
+//object for class
+BMI object;
+
+
 //program main loop
 while(true){
 
+cout<<"\nInput height in feet and inches";
+cout<<"\nHeight: >>";
 
-
-
-if(getinput()==false){
+//get height
+object.height=object.getinput();
+if(object.height==NULL){
+	cout<<"Error getting input";
+	return -1;
+}
+//get weight
+cout<<"Input weight in lbs";
+cout<<"\nlbs: >>";
+object.lbs=object.getinput();
+if(object.lbs==NULL){
 	cout<<"Error getting input";
 	return -1;
 }
 
-if(calculateBMI()==false){
+//calculate BMI
+object.calculateBMI(object);
+if(object.bmi==NULL){
 	cout<<"Error calculating BMI";
 	return -1;
 }
 
-if(classifyBMI()==false){
-	cout<<"Error classifyingBMI";
+
+//classify BMI
+
+string finalbmiclassification=NULL;
+finalbmiclassification=object.classifyBMI(object);
+
+if(finalbmiclassification=="\0"){
+	cout<<"Error classifying BMI";
 	return -1;
 }
 
 
-
-
-//end of while loop
-else return false;
+if(finalbmiclassification=="underweight"){	
+cout<<"\nYour BMI indicates that your underweight";
+cout<<endl;
 }
-
-
-
-
+if(finalbmiclassification=="normal"){	
+cout<<"\nYour BMI indicates that your normal";
+cout<<endl;
+}
+if(finalbmiclassification=="overweight"){	
+cout<<"\nYour BMI indicates that your overweight";
+cout<<endl;
+}
+if(finalbmiclassification=="obese"){	
+cout<<"\nYour BMI indicates that your obese";
+cout<<endl;
+}
+//end of while loop
+return false;
+}
 
 	return 0;
 }
