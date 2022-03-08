@@ -165,9 +165,10 @@ if(object.lbs<=0.0){
 	return -1;
 }
 
+float bmi;
 //calculate BMI
-object.calculateBMI(object);
-if(object.bmi<=0.0){
+bmi=object.calculateBMI(object);
+if(bmi<=0.0){
 	cout<<"Error calculating BMI";
 	return -1;
 }
@@ -175,8 +176,7 @@ if(object.bmi<=0.0){
 
 //classify BMI
 
-string finalbmiclassification=NULL;
-finalbmiclassification=object.classifyBMI(object);
+string finalbmiclassification=object.classifyBMI(object);
 
 if(finalbmiclassification=="\0"){
 	cout<<"Error classifying BMI";
