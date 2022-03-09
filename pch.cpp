@@ -220,7 +220,7 @@ int main(int argc, char** argv) {
 			cout << endl;
 
 		}
-		cout << system("pause");
+		
 		//end of while loop
 		return RUN_ALL_TESTS();
 		
