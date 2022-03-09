@@ -25,7 +25,8 @@ create one if you want). For now, the app must have  the following functionality
 weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (see formula linked in the Notes  & Resources section).   */
 
 #include<iostream>
-
+#include<math.h>
+#include<iomanip>
 //include google test headers
 #include<gtest/gtest.h>
 
@@ -36,17 +37,10 @@ using namespace std;
 
 
 
-//needed variables
-float height;
-float lbs;
-float bmi;
 
 
-//bmi vals
-float weightconversion=0.45;
-float heightconversion=0.025;
 
-float weight,weightconverted,heightconverted;
+
 
 
 //classification vals
@@ -70,56 +64,40 @@ return input;
 }
 
 
-float calculateBMI(){
-
+float calculateBMI( float x, float y){
+float bmi;
 //calculate to get BMI value
+bmi = (y/ pow(x,2))*703;
 
-//1
-//multiply weight to convert
-weightconverted=lbs*weightconversion;
-cout<<"\n Weight Converted:"<<weightconverted;
-//2
-//multiply height to convert
-heightconverted=height*heightconversion;
-cout<<"\n height Converted:"<<heightconverted;
-
-//3
-//square the answer from step 2
-heightconverted=heightconverted*heightconverted;
-cout<<"\n height Converted after square:"<<heightconverted;
-
-//4
-//divide the answer from step 1 by the answer from step 3
-
-bmi=weightconverted/heightconverted;
 cout<<endl;
 cout<<bmi;
 cout<<endl;
 return bmi;
 }
 
-string classifyBMI(){
+string classifyBMI(float x){
 
 //classify BMI based on following:
 //Underweight = <18.5; Normal weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (s//ee formula linked in the Notes  & Resources section)
 //bmi link:http://extoxnet.orst.edu/faqs/dietcancer/web2/twohowto.html
 
+cout<<fixed<<showpoint<<setprecision(2);
 //underweight bmi
-if(bmi<underweight){
+if(x<underweight){
 
 string bmi="underweight";
 return bmi;
 }
 
 //normal bmi
-if(bmi>underweight && bmi<normalupper){
+if(x>underweight && x<normalupper){
 string bmi="normal";
 
 return bmi;
 }
 
 //overweight
-if(bmi>25.0 && bmi<29.9){
+if(x>25.0 && x<29.9){
 string bmi="overweight";
 
 return bmi;
@@ -127,7 +105,7 @@ return bmi;
 }
 
 //obese
-if(bmi >=30.0){
+if(x >=30.0){
 string bmi="obese";
 
 return bmi;
@@ -164,7 +142,10 @@ TEST(BMITest, ErrorinClassification){
 
 
 int main(int argc,char **argv){
-
+//needed variables
+float height;
+float lbs;
+float bmi;
 
 //setup testing
 testing::InitGoogleTest(&argc, argv);
@@ -196,7 +177,7 @@ if(lbs<=0.0){
 
 float bmi;
 //calculate BMI
-bmi=calculateBMI();
+bmi=calculateBMI(height,lbs);
 if(bmi<=0.0){
 	cout<<"Error calculating BMI";
 	return -1;
@@ -205,14 +186,14 @@ if(bmi<=0.0){
 
 //classify BMI
 
-string finalbmiclassification=classifyBMI();
+string finalbmiclassification=classifyBMI(bmi);
 
 if(finalbmiclassification=="\0"){
 	cout<<"Error classifying BMI";
 	return -1;
 }
 
-cout<<bmi;
+
 if(finalbmiclassification=="underweight"){	
 cout<<"\nYour BMI indicates that your underweight";
 cout<<endl;
