@@ -170,7 +170,7 @@ int main(int argc, char** argv) {
 		cout << "\nHeight: >>";
 
 		//get height
-		height=cin >> 40;
+		height=40;
 		if (height <= 0.0) {
 			cout << "Error getting input";
 			return -1;
@@ -178,7 +178,7 @@ int main(int argc, char** argv) {
 		//get weight
 		cout << "Input weight in lbs";
 		cout << "\nlbs: >>";
-		lbs=cin >> 200;
+		lbs= 200;
 		if (lbs <= 0.0) {
 			cout << "Error getting input";
 			return -1;
