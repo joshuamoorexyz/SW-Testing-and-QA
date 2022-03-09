@@ -32,17 +32,6 @@ weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (see
 
 using namespace std;
 
-
-
-
-
-
-
-
-
-
-
-
 //classification vals
 float normalupper=24.9;
 float underweight=18.5;
@@ -56,12 +45,7 @@ int obese=30.0;
 
 //functions for program
 
-//get the values
-float getinput(){
-float input;
-cin>>input;
-return input;
-}
+
 
 
 float calculateBMI( float x, float y){
@@ -69,9 +53,7 @@ float bmi;
 //calculate to get BMI value
 bmi = (y/ pow(x,2))*703;
 
-cout<<endl;
-cout<<bmi;
-cout<<endl;
+
 return bmi;
 }
 
@@ -122,23 +104,42 @@ return bmi;
 
 
 
-TEST(BMITest, InvalidInput){
-
-ASSERT_EQ(1,1);
-
-}
-TEST(BMITest, ErrorInCalculation){
 
 
 
+TEST(BMITest, Greaterthan0Lessthan100){
+float bmi=calculateBMI(56,119);
 
-}
-
-TEST(BMITest, ErrorinClassification){
+EXPECT_TRUE(bmi>0.0&&bmi<100.0);
 
 
 }
 
+TEST(BMITest, classifyBMIUnderweight){
+
+string classify=classifyBMI(18.4);
+
+EXPECT_EQ(classify,"underweight");
+}
+
+TEST(BMITest, classifyBMINoraml){
+string classify=classifyBMI(18.6);
+
+EXPECT_EQ(classify,"normal");
+
+}
+TEST(BMITest, classifyBMIOverweight){
+string classify=classifyBMI(25.1);
+
+EXPECT_EQ(classify,"overweight");
+
+}
+TEST(BMITest, classifyBMIObese){
+string classify=classifyBMI(31.0);
+
+EXPECT_EQ(classify,"obese");
+
+}
 
 
 int main(int argc,char **argv){
@@ -161,7 +162,7 @@ cout<<"\nInput height in feet and inches";
 cout<<"\nHeight: >>";
 
 //get height
-height=getinput();
+cin>>height;
 if(height<=0.0){
 	cout<<"Error getting input";
 	return -1;
@@ -169,7 +170,7 @@ if(height<=0.0){
 //get weight
 cout<<"Input weight in lbs";
 cout<<"\nlbs: >>";
-lbs=getinput();
+cin>>lbs;
 if(lbs<=0.0){
 	cout<<"Error getting input";
 	return -1;
