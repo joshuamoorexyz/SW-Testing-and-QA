@@ -26,22 +26,21 @@ weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (see
 
 #include<iostream>
 
+//include google test headers
+#include<gtest/gtest.h>
 
 using namespace std;
 
-class BMI{
-
-
-private:
 
 
 
-public:
+
+
 //needed variables
 float height;
 float lbs;
 float bmi;
-float finalbmi;
+
 
 //bmi vals
 float weightconversion=0.45;
@@ -56,64 +55,71 @@ float underweight=18.5;
 float overweightupper=29.9;
 
 
-int obese=30;
+int obese=30.0;
+
+
+
 
 //functions for program
 
 //get the values
 float getinput(){
 float input;
-std::cin>>input;
+cin>>input;
 return input;
 }
 
 
-float calculateBMI(BMI O){
+float calculateBMI(){
 
 //calculate to get BMI value
 
 //1
 //multiply weight to convert
-O.weightconverted=lbs*O.weightconversion;
-
+weightconverted=lbs*weightconversion;
+cout<<"\n Weight Converted:"<<weightconverted;
 //2
 //multiply height to convert
-O.heightconverted=O.height*O.heightconversion;
+heightconverted=height*heightconversion;
+cout<<"\n height Converted:"<<heightconverted;
 
 //3
 //square the answer from step 2
-O.heightconverted=O.heightconverted*O.heightconverted;
+heightconverted=heightconverted*heightconverted;
+cout<<"\n height Converted after square:"<<heightconverted;
 
 //4
 //divide the answer from step 1 by the answer from step 3
-O.bmi=O.weightconverted/O.heightconverted;
 
-
-return O.bmi;
+bmi=weightconverted/heightconverted;
+cout<<endl;
+cout<<bmi;
+cout<<endl;
+return bmi;
 }
 
-string classifyBMI(BMI b){
+string classifyBMI(){
 
 //classify BMI based on following:
 //Underweight = <18.5; Normal weight = 18.5–24.9;  Overweight = 25–29.9; Obese = BMI of 30 or greater (s//ee formula linked in the Notes  & Resources section)
 //bmi link:http://extoxnet.orst.edu/faqs/dietcancer/web2/twohowto.html
 
 //underweight bmi
-if(b.bmi<b.underweight){
+if(bmi<underweight){
 
 string bmi="underweight";
 return bmi;
 }
 
 //normal bmi
-if(b.bmi>b.underweight && b.bmi<b.normalupper){
+if(bmi>underweight && bmi<normalupper){
 string bmi="normal";
 
 return bmi;
 }
 
 //overweight
-if(bmi>25 && bmi<29.9){
+if(bmi>25.0 && bmi<29.9){
 string bmi="overweight";
 
 return bmi;
@@ -121,7 +127,7 @@ return bmi;
 }
 
 //obese
-if(bmi >=30){
+if(bmi >=30.0){
 string bmi="obese";
 
 return bmi;
@@ -135,13 +141,36 @@ return bmi;
 
 
 
-};
 
 
-int main(){
 
-//object for class
-BMI object;
+TEST(BMITest, InvalidInput){
+
+ASSERT_EQ(1,1);
+
+}
+TEST(BMITest, ErrorInCalculation){
+
+
+
+
+}
+
+TEST(BMITest, ErrorinClassification){
+
+
+}
+
+
+
+int main(int argc,char **argv){
+
+
+//setup testing
+testing::InitGoogleTest(&argc, argv);
+
+
+
 
 
 //program main loop
@@ -151,23 +180,23 @@ cout<<"\nInput height in feet and inches";
 cout<<"\nHeight: >>";
 
 //get height
-object.height=object.getinput();
-if(object.height<=0.0){
+height=getinput();
+if(height<=0.0){
 	cout<<"Error getting input";
 	return -1;
 }
 //get weight
 cout<<"Input weight in lbs";
 cout<<"\nlbs: >>";
-object.lbs=object.getinput();
-if(object.lbs<=0.0){
+lbs=getinput();
+if(lbs<=0.0){
 	cout<<"Error getting input";
 	return -1;
 }
 
 float bmi;
 //calculate BMI
-bmi=object.calculateBMI(object);
+bmi=calculateBMI();
 if(bmi<=0.0){
 	cout<<"Error calculating BMI";
 	return -1;
@@ -176,14 +205,14 @@ if(bmi<=0.0){
 
 //classify BMI
 
-string finalbmiclassification=object.classifyBMI(object);
+string finalbmiclassification=classifyBMI();
 
 if(finalbmiclassification=="\0"){
 	cout<<"Error classifying BMI";
 	return -1;
 }
 
-
+cout<<bmi;
 if(finalbmiclassification=="underweight"){	
 cout<<"\nYour BMI indicates that your underweight";
 cout<<endl;
@@ -199,12 +228,14 @@ cout<<endl;
 if(finalbmiclassification=="obese"){	
 cout<<"\nYour BMI indicates that your obese";
 cout<<endl;
+
 }
 //end of while loop
+return RUN_ALL_TESTS();
 return false;
 }
-
 	return 0;
+	
 }
 
 
