@@ -1,6 +1,6 @@
 
 main: main.o
-	g++ main.cpp -lgtest -pthread -o bmicalculator
+	g++ pch.cpp -lgtest -pthread -o bmicalculator
 
 
 
