@@ -1,5 +1,5 @@
 
-main: main.o 
+main: main.cpp
 	g++ main.cpp -lgtest -pthread -o bmicalculator
 
 
