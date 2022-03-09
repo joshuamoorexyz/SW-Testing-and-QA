@@ -23,5 +23,5 @@ jobs:
         sudo make
         sudo cp lib/*.a /usr/lib
     - name: run
-      run: ./bmicalculator.exe
+      run: sudo ./bmicalculator.exe
         
