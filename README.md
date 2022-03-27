@@ -1,4 +1,4 @@
-# Title:BMI Calculator to practice unit testing in c++
+# Title:BMI Calculator to practice unit testing and other operations
 ## Description: Using gtest with Cmake and Github Actions as a runner
 
 ## Steps to run on windows:
