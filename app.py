@@ -14,10 +14,10 @@ def main():
     if request.method == 'POST' and 'weight' in request.form:
         height = float(request.form.get('height'))
         weight = float(request.form.get('weight'))
-        bmi = calculateBMI(height,weight)
+        bmi = round(calculateBMI(height,weight))
         bmiclassification = classifyBMI(bmi)
     return render_template("index.html",
-	                        bmi=bmi)
+	                        bmi=bmi,bmiclassification=bmiclassification)
 
 if __name__ == '__main__':
     app.run()

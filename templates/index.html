@@ -32,8 +32,12 @@
 	{% if bmi %}
 	    <p>
         {% print("Your BMI is {}.".format(bmi)) %}
-	<br>
-	
+        </p>
+	{% endif %}
+
+	{% if bmiclassification %}
+	    <p>
+        {% print("Your BMI clsasification is {}.".format(bmiclassification)) %}
         </p>
 	{% endif %}
 </div>
