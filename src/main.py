@@ -1,8 +1,13 @@
 #classification vals
 from sre_constants import FAILURE, SUCCESS
 from functions import *
+from flask import Flask
 
+app = Flask(__name__)
 
+@app.route("/")
+def hello():
+	return "Hello, World!"
 
 normalupper = 24.9
 underweight = 18.5
