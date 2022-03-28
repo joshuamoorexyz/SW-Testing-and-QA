@@ -18,7 +18,6 @@ jobs:
           
           name: "dependences"
           command: "pip install pytest"
-          name: "unit test"
           command: "pytest test.py"
 
 # Invoke jobs via workflows
