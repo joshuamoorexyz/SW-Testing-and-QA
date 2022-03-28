@@ -15,6 +15,9 @@ jobs:
     steps:
       - checkout
       - run:
+          
+          name: "dependences"
+          command: "pip install pytest"
           name: "unit test"
           command: "pytest test.py"
 
