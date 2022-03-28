@@ -17,7 +17,7 @@ jobs:
       - run:
           
           name: "dependences"
-          command: "pip install pytest && pytest test.py"
+          command: "apt install python-pip && pip install pytest && pytest test.py"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
