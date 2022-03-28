@@ -1,6 +1,5 @@
 
 import pytest
-from sys import os
 
 
 def underweight():
