@@ -7,7 +7,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/',methods=['GET', 'POST'])
+@app.route('https://bmicalcwflask.herokuapp.com/',methods=['GET', 'POST'])
 def main():
     bmi=''
     bmiclassification=""
