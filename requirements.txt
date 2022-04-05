@@ -1,0 +1,4 @@
+pip3 install flask
+pip3 install selenium
+#chrome webdriver for selenium https://sites.google.com/chromium.org/driver/
+#Selenium Server (GRID) https://www.selenium.dev/downloads/

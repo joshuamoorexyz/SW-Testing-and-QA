@@ -1,0 +1,62 @@
+1649125105480	geckodriver	INFO	Listening on 127.0.0.1:58393
+1649125105484	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49663" "-no-remote" "-profile" "/tmp/rust_mozprofileccKO7b"
+1649125106069	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileccKO7b/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49663/devtools/browser/21d899ae-ea56-4b52-b3c7-96658c301bf4
+1649125107414	Marionette	INFO	Listening on port 35755
+1649125107505	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649125107677	Marionette	INFO	Stopped listening on port 35755
+console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
+JavaScript error: resource://gre/modules/BackgroundPageThumbs.jsm, line 732: TypeError: captureCallback is not a function
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1649125140873	geckodriver	INFO	Listening on 127.0.0.1:40071
+1649125140876	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "56737" "-no-remote" "-profile" "/tmp/rust_mozprofilebZlcDS"
+1649125141338	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebZlcDS/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:56737/devtools/browser/22fb6255-f094-4758-a39b-922e2da66ef7
+1649125142485	Marionette	INFO	Listening on port 35065
+1649125142599	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649125142926	Marionette	INFO	Stopped listening on port 35065
+JavaScript error: resource://gre/modules/BackgroundPageThumbs.jsm, line 732: TypeError: captureCallback is not a function
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1649125236362	geckodriver	INFO	Listening on 127.0.0.1:36769
+1649125236366	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "39139" "-no-remote" "-profile" "/tmp/rust_mozprofileyA7umx"
+1649125236822	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileyA7umx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:39139/devtools/browser/f9508d22-b8c1-4fc1-8ea4-2cc1296bb5f6
+1649125237956	Marionette	INFO	Listening on port 37087
+1649125237986	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649125238219	Marionette	INFO	Stopped listening on port 37087
+console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
+JavaScript error: resource://gre/modules/BackgroundPageThumbs.jsm, line 732: TypeError: captureCallback is not a function
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+console.error: QuickSuggest: (new RemoteSettingsWorkerError("Remote Settings has shut down.", "resource://services-settings/RemoteSettingsWorker.jsm", 46))
+1649125252583	geckodriver	INFO	Listening on 127.0.0.1:51535
+1649125252586	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45887" "-no-remote" "-profile" "/tmp/rust_mozprofileZojrd8"
+1649125253058	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZojrd8/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45887/devtools/browser/b65a14f6-bf49-4d59-9fba-c11163070677
+1649125254209	Marionette	INFO	Listening on port 39995
+1649125254310	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649125254561	Marionette	INFO	Stopped listening on port 39995
+JavaScript error: resource://gre/modules/BackgroundPageThumbs.jsm, line 732: TypeError: captureCallback is not a function
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PNecko::Msg_PredLearn) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
