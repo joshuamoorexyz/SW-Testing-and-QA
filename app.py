@@ -17,7 +17,7 @@ def main():
         bmi = float(calculateBMI(height,weight))
         bmiclassification=classifyBMI(bmi)
     return render_template("index.html",
-	                        bmi=round(bmi),bmiclassification=bmiclassification)
+	                        bmi=bmi,bmiclassification=bmiclassification)
 
 
 
